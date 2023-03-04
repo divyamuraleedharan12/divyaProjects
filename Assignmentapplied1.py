@@ -83,7 +83,7 @@ def piegraph(data3):
     plt.figure()
     plt.pie(pie_data["2020"], labels=pie_data["Country"], autopct="%1.1f%%")
     # Set title for plot
-    plt.title("Incidence of tuberculosis(per 100,000 people)")
+    plt.title("Incidence of tuberculosis(per 100,000 people) in 2020")
     # Saves pie graph figure as png
     plt.savefig("Prevelance of tuberculosis piegraph.png")
     # Function to show the plot
