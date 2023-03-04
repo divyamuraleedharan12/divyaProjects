@@ -60,9 +60,10 @@ def bargraph(data2):
     plt.xlabel("Country")
     # Set y-label for plot axes
     plt.ylabel("Mortality Rate")
+    plt.legend()
     # Saves bar graph figure as png
     plt.savefig("Mortality Rate Bargraph.png")
-    plt.legend()
+    
     # Function to show the plot
     plt.show()
     return
