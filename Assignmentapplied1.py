@@ -52,8 +52,8 @@ def bargraph(data2):
     print(bar_data)  # prints the dataset
     plt.figure()
     # Bar plot
-    plt.bar(bar_data["Country"], bar_data["Mortality rate, adult, male (per 1,000 male adults)"])
-    plt.bar(bar_data["Country"], bar_data["Mortality rate, adult, female (per 1,000 female adults)"])
+    plt.bar(bar_data["Country"], bar_data["Mortality rate, adult, male (per 1,000 male adults)"], label="MALE")
+    plt.bar(bar_data["Country"], bar_data["Mortality rate, adult, female (per 1,000 female adults)"], label="FEMALE")
     # Set title for plot
     plt.title("Bar Plot of Mortality Rate in 2018")
     # Set x-label for plot axes
@@ -62,6 +62,7 @@ def bargraph(data2):
     plt.ylabel("Mortality Rate")
     # Saves bar graph figure as png
     plt.savefig("Mortality Rate Bargraph.png")
+    plt.legend()
     # Function to show the plot
     plt.show()
     return
