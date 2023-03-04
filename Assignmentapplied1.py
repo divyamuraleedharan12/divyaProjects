@@ -22,8 +22,7 @@ def lineplot(data1):
     plt.figure()
     plt.plot(line_data["Year"], line_data["Armenia"], label="Armenia")
     plt.plot(line_data["Year"], line_data["Greece"], label="Greece")
-    plt.plot(line_data["Year"], line_data["North Macedonia"],
-             label="North Macedonia")
+    plt.plot(line_data["Year"], line_data["North Macedonia"], label="North Macedonia")
     plt.plot(line_data["Year"], line_data["Jamaica"], label="Jamaica")
     # Sets the x-axis limit
     plt.xlim(2011, 2021)
@@ -40,10 +39,41 @@ def lineplot(data1):
     plt.show()
     return  # return function is used at the end of a function
 
+""" 
+The below function is used to create a bar graph representing the adult mortality rates for different countries in 2018.
+Arguments passed inside the function is the dataset for plotting.  
+"""
+
+
+def bargraph(data2):
+
+    # Bar plot data set is stored to a new variable, bar_data.
+    bar_data = data2
+    print(bar_data)  # prints the dataset
+    plt.figure()
+    # Bar plot
+    plt.bar(bar_data["Country"], bar_data["Mortality rate, adult, male (per 1,000 male adults)"])
+    plt.bar(bar_data["Country"], bar_data["Mortality rate, adult, female (per 1,000 female adults)"])
+    # Set title for plot
+    plt.title("Bar Plot of Mortality Rate in 2018")
+    # Set x-label for plot axes
+    plt.xlabel("Country")
+    # Set y-label for plot axes
+    plt.ylabel("Mortality Rate")
+    # Saves bar graph figure as png
+    plt.savefig("Mortality Rate Bargraph.png")
+    # Function to show the plot
+    plt.show()
+    return
+
 if __name__ == "__main__":
     # Reads dataset in excel form for line plot
     data1 = pd.read_excel("unemployment.xlsx")
+    # Reads dataset in excel form for bar graph
+    data2 = pd.read_excel("mortality_rate.xlsx")
     
     # Calling line plot function
     lineplot(data1)
+    # Calling bar graph function
+    bargraph(data2)
     
