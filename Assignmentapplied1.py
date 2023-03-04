@@ -15,7 +15,7 @@ Arguments passed inside the function is the dataset for plotting
 
 
 def lineplot(data1):
-    # Line plot data set is stored to a new variable,line_plot.
+    # Line plot data set is stored to a new variable,line_data.
     line_data = data1
     print(line_data)
     # Plot countries with labels
@@ -66,14 +66,39 @@ def bargraph(data2):
     plt.show()
     return
 
+""" 
+The function below is used to generate a pie chart showing the prevalence of TB per 100,000 people.
+Arguments passed inside the function is the dataset for plotting. 
+"""
+
+
+def piegraph(data3):
+
+    # Pie chart data set is stored to a new variable,pie_data.
+    pie_data = data3
+    print(pie_data)  # Prints the dataset
+    # Creating plot
+    plt.figure()
+    plt.pie(pie_data["2020"], labels=pie_data["Country"], autopct="%1.1f%%")
+    # Set title for plot
+    plt.title("Incidence of tuberculosis(per 100,000 people)")
+    # Saves pie graph figure as png
+    plt.savefig("Prevelance of tuberculosis piegraph.png")
+    # Function to show the plot
+    plt.show()
+    return
+
 if __name__ == "__main__":
     # Reads dataset in excel form for line plot
     data1 = pd.read_excel("unemployment.xlsx")
     # Reads dataset in excel form for bar graph
     data2 = pd.read_excel("mortality_rate.xlsx")
+    # Reads dataset in excel form for pie graph
+    data3 = pd.read_excel("tuberculosis.xlsx")
     
     # Calling line plot function
     lineplot(data1)
     # Calling bar graph function
-    bargraph(data2)
-    
+    bargraph(data2)   
+    # Calling pie graph function
+    piegraph(data3)
